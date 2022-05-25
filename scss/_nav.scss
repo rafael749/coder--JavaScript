@@ -1,0 +1,63 @@
+/************************************************************
+                             N A V   
+/***********************************************************/
+
+
+.icon__Menu{
+    font-size: 30px;
+    color: #ffffff;
+    margin-top: -10px;    
+    padding-left: 7px;
+}
+
+.iconMEnu__span{
+    position: absolute;
+    color: #ffffff;
+    margin-top: -2px;
+}
+
+#btn-menu{
+    display: none;
+}
+
+.label__menu{
+    display: none;
+    width: 30px;
+    height: 70px;
+    padding-left: 40px;
+    margin-top: -75px;
+}
+.label__menu:hover{
+    cursor: pointer;
+}
+
+.menu{
+    display: flex;
+    justify-content: center;
+
+    & ul{
+        margin: 0;
+        list-style: none;
+        padding-left: 10%;
+        display: flex;
+    }
+
+    & li{
+        border-right: 1px solid rgb(223, 223, 223);
+    }
+
+    & li:hover{
+        background: rgba(0,0,0,0.1);
+    }
+
+    & li a{
+        display: block;
+        padding: 15px 20px;
+        text-decoration: none;
+        color:$backgroundColor;
+    }
+    
+    & li .activo{
+        color:$ColorRojoMain;
+    }
+}

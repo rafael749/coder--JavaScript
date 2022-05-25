@@ -1,0 +1,185 @@
+/************************************************************************
+                Grilla Productos
+*************************************************************************/
+@mixin grilla($display, $columnas, $gap, $margin, $padding){
+
+    display: $display;
+    grid-template-columns: $columnas;
+    grid-template-areas:
+    "h1__titulo1 h1__titulo1 h1__titulo1 h1__titulo1"
+    "producto1 producto2 producto3 producto4"
+    "h2__titulo2 h2__titulo2 h2__titulo2 h2__titulo2"
+    "producto5 producto6 producto7 producto8";
+    justify-content: space-evenly; 
+    align-items: center;
+    justify-items:flex-start;
+    gap: $gap;
+    margin: $margin;
+    padding: $padding;
+    font-family: 'Ubuntu', sans-serif;
+    background-color: rgb(236, 236, 236);
+    border-top: 3px solid #d6d4d4;
+
+}
+
+.grillaPadre{
+
+    @include grilla(grid, repeat(4, 1fr), 3%, 5% 0, 0 10%);
+
+    & .h1__titulo1{
+        grid-area: h1__titulo1;
+        margin-top: 40px;
+    }
+
+    & .h2__titulo2{
+        grid-area: h2__titulo2;
+        margin-top: 40px;
+    }
+
+    & .card__css-manual{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        border: 0.10px solid #dfdfdf;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        background-color: #ffffff;
+        z-index: 20;
+        
+        & .cart_menu{
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 30px;
+            color: white;
+            padding: 2px;
+            z-index: 20;
+        }
+
+        & .cart_menu_Nuevo{
+            @extend .cart_menu;        
+            top: 5%;
+            left: 70%;
+            background: $ColorRojoMain;
+            width: 60px;
+        }
+        
+        & .cart_menu_Envio{
+            @extend .cart_menu;   
+            top: 5%;
+            right: 66%;
+            background: $colorVerdeMain;
+            width: 70px;
+        }
+    }
+
+    & .card__css-manual:hover{
+        border-color: $ColorRojoMain;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+    
+    & .card__css-manual img{
+        width: 100%;
+        height: 250px;
+        object-fit: scale-down;
+        padding-top: 10%;
+        z-index: 10;
+    }
+
+    & .precio__anterior{
+        font-size: 15px;
+        text-decoration: line-through;
+        color: #777;
+        z-index: 20;
+    }
+
+    & .productoDetalle{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 6%;
+        padding: 2%;
+        overflow: hidden;
+        max-height: 140px;
+    }
+    
+    & .productoDetalle h3{
+        color:$ColorRojoMain;
+        text-align: center;
+    }
+
+    & 
+    .productoDetalle p{
+    color: #777;
+    }
+    & .producto1{
+        grid-area: producto1;
+    }
+    & .producto2{
+        grid-area: producto2;
+    }
+    & .producto3{
+        grid-area: producto3;
+    }
+    & .producto4{
+        grid-area: producto4;
+    }
+    & .producto5{
+        grid-area: producto5;
+    }
+    & .producto6{
+        grid-area: producto6;
+    }
+    & .producto7{
+        grid-area: producto7;
+    }
+    & .producto8{
+        grid-area: producto8;
+    }
+
+    & .carrito{
+        display: flex;
+        border-top: 2px solid #dfdfdf;
+        flex-direction: row;
+        justify-content: space-around;
+        justify-items: center;
+        align-items: center;
+        margin-top: 5%;
+        height: 50px;
+        padding: 0%;
+     
+        & .heart , .eye , .shopping-car{
+            opacity: 0.5;
+            transition: opacity .5s ease-out;
+            -moz-transition: opacity .5s ease-out;
+            -webkit-transition: opacity .5s ease-out;
+            -o-transition: opacity .5s ease-out;
+        }
+
+        & a{
+            color:gray;
+        }
+    
+    }
+
+    & .activo{
+        opacity: 1;
+        color: $ColorRojoMain;
+    }
+    
+    & .heart:hover , & .eye:hover , & .shopping-car:hover{
+    opacity: 1;
+    color: $ColorRojoMain;
+    }
+}
+.hideProductoAccion {
+    display: none;
+  }
+      
+  .hoverProductoAccion:hover + .hideProductoAccion {
+    display: block;
+    color: red;
+  }

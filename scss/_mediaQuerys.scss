@@ -1,0 +1,270 @@
+
+/***********************************************************
+MEDIAS QUERYS
+************************************************************/
+
+
+@media screen and (min-width:320px) and (max-width:480px){
+
+    .label__menu{
+        padding-left: 5px;
+    }
+
+    .sidebar-social-casero{
+        padding: 0;
+    }
+
+    .iconMEnu__span{
+       /* display: none;*/
+       font-size: 15px;
+    }
+
+    .sidebar-social-casero a span {
+        font-size: 11px;
+    }
+
+    .grillaPadre{
+        @include grilla(grid, repeat(1, 1fr), 1%, 10% 0, 0 8%);
+
+        grid-template-areas:
+        "h1__titulo1" 
+        "producto1"
+        "producto2"
+        "producto3" 
+        "producto4"
+        "h2__titulo2"
+        "producto5"
+        "producto6"
+        "producto7"
+        "producto8";
+    }
+
+    .Suscribirse {
+        margin-top: 120%;
+        font-size: 13px;
+    }
+    
+    .Suscribirse form{
+        width: 300px;
+    }
+
+    .Suscribirse form input {
+        width: 100%;
+    font-size: 1.1rem;
+    }
+
+    .Suscribirse form button {
+        width: 80%;
+        font-size: 20px;
+    }
+
+    .card-body {
+    flex:0;
+    padding:0;
+    }
+}
+
+@media screen and (min-width:481px) and (max-width:600px){
+
+    .label__menu{
+        padding-left: 20px;
+    }
+
+    .sidebar-social-casero{
+        padding: 0;
+    }
+
+    .grillaPadre{
+        @include grilla(grid, repeat(2, 1fr), 3%, 5% 0, 0 8%);
+        grid-template-areas:
+        "h1__titulo1 h1__titulo1"
+        "producto1 producto2"
+        "producto3 producto4"
+        "h2__titulo2 h2__titulo2"
+        "producto5 producto6"
+        "producto7 producto8";
+    }
+        
+    .card__css-manual img{
+        width: 100%;
+        height: 250px;
+        object-fit: scale-down;
+    }
+
+    .Suscribirse {
+        margin-top: 60%;
+        font-size: 15px;
+    }
+    
+    .Suscribirse form{
+        width: 450px;
+    }
+
+    .Suscribirse form input {
+    font-size: 20px;
+    }
+
+    .Suscribirse form button {
+        font-size: 20px;
+    }
+}
+
+@media screen and (min-width:601px) and (max-width:768px){
+
+    .sidebar-social-casero{
+        padding: 0;
+    }
+
+    .grillaPadre{
+        @include grilla(grid, repeat(2, 1fr), 3%, 5% 0, 0 8%);
+
+        grid-template-areas:
+        "h1__titulo1 h1__titulo1"
+        "producto1 producto2"
+        "producto3 producto4"
+        "h2__titulo2 h2__titulo2"
+        "producto5 producto6"
+        "producto7 producto8";
+    }
+        
+    .card__css-manual img{
+        width: 100%;
+        height: 250px;
+        object-fit: scale-down;
+    }
+
+    .Suscribirse {
+        margin-top: 50%;
+    }
+}
+
+@media screen and (max-width:992px){
+
+    .label__menu{
+        display: block;
+        position: absolute;
+    }
+
+    .menu{
+        background-color: $backgroundColorBody;
+        position: absolute;
+        width: 75%;
+        margin-left: -75%;
+        transition: all 0.5s;
+        opacity: 0.9;
+        z-index: 30;
+        display: table-column;
+    }
+
+    .menu ul{
+        flex-direction: column;
+        padding-left: 0%;
+    }
+
+    .menu li{
+        border-top: 1px solid rgb(223, 223, 223);
+    }
+
+    #btn-menu:checked ~ .menu {
+        margin: 0%;
+    }
+}
+
+@media screen and (min-width:769px) and (max-width: 1200px){
+
+    .grillaPadre{
+        @include grilla(grid, repeat(3, 1fr), 3%, 0% 0, 0 8%);
+
+        grid-template-areas:
+        "h1__titulo1 h1__titulo1 h1__titulo1"
+        "producto1 producto2 producto3"
+        "producto4 . ."
+        "h2__titulo2 h2__titulo2 h2__titulo2"
+        "producto5 producto6 producto7"
+        "producto8 . .";
+    }
+        
+    .card__css-manual img{
+        width: 100%;
+    }
+
+    .Suscribirse {
+        margin-top: 40%;
+    }
+}
+@media screen and (min-width:1025px){
+    .menu ul {
+        padding-left: 0%;
+    }
+}
+@media screen and (min-width:993px) and (max-width: 1200px){
+    .container__manualTopHeader-ul{
+        margin-left: -30px;
+    }
+}
+
+@media screen and (min-width:1201px) and (max-width : 1400px){
+
+    .grillaPadre{
+        @include grilla(grid, repeat(4, 1fr), 3%, 5% 0, 0 10%);
+
+        grid-template-areas:
+        "h1__titulo1 h1__titulo1 h1__titulo1 h1__titulo1"
+        "producto1 producto2 producto3 producto4"
+        "h2__titulo2 h2__titulo2 h2__titulo2 h2__titulo2"
+        "producto5 producto6 producto7 producto8";
+    }
+        
+    .card__css-manual img{
+        width: 100%;
+    }
+
+    .Suscribirse {
+        margin-top: 20%;
+    }
+}
+
+@media screen and (min-width:1400px){
+
+    .container__manualTopHeader-ul{
+        margin-left: -30px;
+    }
+    .menu ul {
+        padding-left: 5%;
+    }
+    .container{
+        max-width: 80%;
+    }
+    .card__css-manual img:hover{
+        transform: scale(1.15,1.15);
+        transition: all .4s ease-in-out;
+    }
+    .Suscribirse {
+        margin-top: 20%;
+    }
+}    
+
+@media screen and (max-width:1200px){
+
+    .card__css-manual img:hover{
+        transform: scale(1.05,1.05);
+        transition: all .4s ease-in-out;
+    }
+} 
+
+@media screen and (min-width:769px){
+
+    @keyframes animate{
+        0%,10%,100%{
+        width: 0;
+        }
+        70%,90%{
+            width: 100%;
+        }
+    }
+
+    .ul__li a:hover, .ul__li a:focus {
+        background-size: 90% 2px;
+        color: $ColorRojoMain; 
+    }
+}

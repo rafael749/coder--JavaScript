@@ -1,0 +1,33 @@
+/********************************************************
+                Sub-categorias circulo + Pagos 
+*********************************************************/
+
+.img__categoria_circulo{
+    max-width: 200px;
+
+    & img{
+        width: 100%;
+        cursor: pointer;    
+    }
+
+}
+.MetodoPago{
+    cursor: pointer;
+}
+
+.rounded-circle:hover{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+/*********************************************************
+                Pasarela de pagos
+**********************************************************/
+
+.imgPago{
+    width: 90px;
+}
+
+.marginBottom {
+    height: 50px;
+    border-bottom: 1px solid #c5c5c5;
+}

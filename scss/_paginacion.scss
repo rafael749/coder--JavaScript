@@ -1,0 +1,15 @@
+/******************************************
+        PAGINACION
+******************************************/
+
+.page-link {
+    color: $backgroundColorTopHeader;
+}
+.page-link:hover{
+    color:$ColorRojoMain;
+}
+
+.page-item.active .page-link {
+    background-color:$ColorRojoMain;
+    border-color: $ColorRojoMain;
+}

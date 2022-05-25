@@ -1,0 +1,19 @@
+/************************************************************
+                             Banner 
+/***********************************************************/
+
+.carrusel{
+    background-color:rgb(236, 236, 236);
+    height: 700px;
+    z-index:20;
+
+}
+
+.carousel-item img{
+    object-fit: scale-down;
+    width: 100%;
+}
+
+.carousel{
+    margin-bottom: 100px;
+}

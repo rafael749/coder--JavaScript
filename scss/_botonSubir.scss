@@ -1,0 +1,23 @@
+/********************************************************
+                BOTON SUBIR
+/********************************************************/
+html {
+    scroll-behavior: smooth;
+}
+
+.Btn__Flotante {  
+    font-size: 20px;  
+
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.Btn__FlotanteAnchor{
+    bottom: 50px;
+    right: 20px;
+    width: 50px;
+    height: 22px;
+    position: fixed;
+    z-index: 100;
+}

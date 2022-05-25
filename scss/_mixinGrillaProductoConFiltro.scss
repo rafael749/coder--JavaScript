@@ -1,0 +1,376 @@
+/************************************************************************
+                Grilla Productos
+*************************************************************************/
+.container__anchoAl80{
+    width: 80%;
+}
+@mixin grilla1($display, $columnas, $gap, $margin, $padding){
+
+    display: $display;
+    grid-template-columns: $columnas;
+    grid-template-areas:
+    "h1__titulo1 h1__titulo1 h1__titulo1 h1__titulo1"
+    "producto1 producto2 producto3 producto4"
+    "h2__titulo2 h2__titulo2 h2__titulo2 h2__titulo2"
+    "producto5 producto6 producto7 producto8";
+    justify-content: space-evenly; 
+    align-items: center;
+    justify-items:flex-start;
+    gap: $gap;
+    margin: $margin;
+    padding: $padding;
+    font-family: 'Ubuntu', sans-serif;
+    background-color: rgb(236, 236, 236);
+}
+
+.grillaPadre5{
+
+    @include grilla1(grid, repeat(4, 1fr), 2%, 0% 0, 0 0%);
+
+    & .h1__titulo1{
+        grid-area: h1__titulo1;
+        margin-top: -8px;
+    }
+
+    & .h2__titulo2{
+        grid-area: h2__titulo2;
+        margin-top: 40px;
+    }
+
+    & .card__css-manual{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        border: 0.10px solid #dfdfdf;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        background-color: #ffffff;
+        z-index: 20;
+        
+        & .cart_menu{
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 30px;
+            color: white;
+            padding: 2px;
+            z-index: 20;
+        }
+
+        & .cart_menu_Nuevo{
+            @extend .cart_menu;        
+            top: 5%;
+            left: 70%;
+            background: $ColorRojoMain;
+            width: 60px;
+        }
+        
+        & .cart_menu_Envio{
+            @extend .cart_menu;   
+            top: 5%;
+            right: 66%;
+            background: $colorVerdeMain;
+            width: 70px;
+        }
+    }
+
+    & .card__css-manual:hover{
+        border-color: $ColorRojoMain;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+    
+    & .card__css-manual img{
+        width: 100%;
+        height: 250px;
+        object-fit: scale-down;
+        padding-top: 10%;
+        z-index: 10;
+    }
+
+    & .precio__anterior{
+        font-size: 15px;
+        text-decoration: line-through;
+        color: #777;
+        z-index: 20;
+    }
+
+    & .productoDetalle{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 6%;
+        padding: 2%;
+        overflow: hidden;
+        max-height: 140px;
+    }
+    
+    & .productoDetalle h3{
+        color:$ColorRojoMain;
+        text-align: center;
+    }
+
+    & 
+    .productoDetalle p{
+    color: #777;
+    }
+    & .producto1{
+        grid-area: producto1;
+    }
+    & .producto2{
+        grid-area: producto2;
+    }
+    & .producto3{
+        grid-area: producto3;
+    }
+    & .producto4{
+        grid-area: producto4;
+    }
+    & .producto5{
+        grid-area: producto5;
+    }
+    & .producto6{
+        grid-area: producto6;
+    }
+    & .producto7{
+        grid-area: producto6;
+    }
+    & .producto8{
+        grid-area: producto6;
+    }
+
+    & .carrito{
+        display: flex;
+        border-top: 2px solid #dfdfdf;
+        flex-direction: row;
+        justify-content: space-around;
+        justify-items: center;
+        align-items: center;
+        margin-top: 5%;
+        height: 50px;
+        padding: 0%;
+     
+        & .heart , .eye , .shopping-car{
+            opacity: 0.5;
+            transition: opacity .5s ease-out;
+            -moz-transition: opacity .5s ease-out;
+            -webkit-transition: opacity .5s ease-out;
+            -o-transition: opacity .5s ease-out;
+        }
+
+        & a{
+            color:gray;
+        }
+    
+    }
+
+    & .activo{
+        opacity: 1;
+        color: $ColorRojoMain;
+    }
+    
+    & .heart:hover , & .eye:hover , & .shopping-car:hover{
+    opacity: 1;
+    color: $ColorRojoMain;
+    }
+}
+
+.hideProductoAccion {
+    display: none;
+}
+      
+.hoverProductoAccion:hover + .hideProductoAccion {
+    display: block;
+    color: red;
+}
+
+li a {
+      text-decoration: none;
+      color:$backgroundColorTopHeader;
+}
+
+li a:hover {
+    color:$ColorRojoMain;
+}
+
+.hoverRojo:hover{
+    color:$ColorRojoMain;
+
+}
+
+@media screen and (min-width:320px) and (max-width:480px){
+
+    .label__menu{
+        padding-left: 5px;
+    }
+
+    .sidebar-social-casero{
+        padding: 0;
+    }
+    .grillaPadre5{
+        @include grilla1(grid, repeat(1, 1fr), 50px, 0% 0, 0 0%);
+
+        grid-template-areas:
+        "h1__titulo1" 
+        "producto1"
+        "producto2"
+        "producto3" 
+        "producto4"
+        "h2__titulo2"
+        "producto5"
+        "producto6"
+        "producto7"
+        "producto8";
+    }
+
+    .Suscribirse {
+        margin-top: 120%;
+        font-size: 13px;
+    }
+    
+    .Suscribirse form{
+        width: 300px;
+    }
+
+    .Suscribirse form input {
+        width: 100%;
+    font-size: 1.1rem;
+    }
+
+    .Suscribirse form button {
+        width: 80%;
+        font-size: 20px;
+    }
+}
+
+.filtroProductos{
+    transition: all 0.8s;
+}
+
+@media screen and (min-width:481px) and (max-width:600px){
+
+    .label__menu{
+        padding-left: 20px;
+    }
+
+    .sidebar-social-casero{
+        padding: 0;
+    }
+
+    .grillaPadre5{
+        @include grilla1(grid, repeat(2, 1fr), 2%, 1% 0, 0 1%);
+        grid-template-areas:
+        "h1__titulo1 h1__titulo1"
+        "producto1 producto2"
+        "producto3 producto4"
+        "h2__titulo2 h2__titulo2"
+        "producto5 producto6"
+        "producto7 producto8";
+    }
+        
+    .card__css-manual img{
+        width: 100%;
+        height: 250px;
+        object-fit: scale-down;
+    }
+
+    .Suscribirse {
+        margin-top: 60%;
+        font-size: 15px;
+    }
+    
+    .Suscribirse form{
+        width: 450px;
+    }
+
+    .Suscribirse form input {
+    font-size: 20px;
+    }
+
+    .Suscribirse form button {
+        font-size: 20px;
+    }
+}
+
+
+.botonFiltrar {
+    display: none;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.filtro {
+    margin-top: 50px;
+}
+
+
+@media  screen and (min-width:320px)and(max-width:767px) {
+
+    .filtroProductos{
+        transition: all 0.8s;
+        padding-left: 30%;
+    }
+
+    .botonFiltrar{
+        display: flex;
+    }
+    
+}
+
+
+@media screen and (min-width:601px) and (max-width:992px){
+
+    .sidebar-social-casero{
+        padding: 0;
+    }
+
+    .grillaPadre5{
+        @include grilla1(grid, repeat(2, 1fr), 2%, 0% 0, 0 2%);
+
+        grid-template-areas:
+        "h1__titulo1 h1__titulo1"
+        "producto1 producto2"
+        "producto3 producto4"
+        "h2__titulo2 h2__titulo2"
+        "producto5 producto6"
+        "producto7 producto8";
+    }
+        
+    .card__css-manual img{
+        width: 100%;
+        height: 250px;
+        object-fit: scale-down;
+    }
+
+    .Suscribirse {
+        margin-top: 50%;
+    }
+
+}
+
+
+
+@media screen and (min-width:993px) and (max-width: 1400px){
+
+    .grillaPadre5{
+        @include grilla1(grid, repeat(3, 1fr), 2%, 0% 0, 0 0%);
+
+        grid-template-areas:
+        "h1__titulo1 h1__titulo1 h1__titulo1"
+        "producto1 producto2 producto3"
+        "producto4 . ."
+        "h2__titulo2 h2__titulo2 h2__titulo2"
+        "producto5 producto6 producto7"
+        "producto8 . .";
+    }
+        
+    .card__css-manual img{
+        width: 100%;
+    }
+
+    .Suscribirse {
+        margin-top: 40%;
+    }
+}

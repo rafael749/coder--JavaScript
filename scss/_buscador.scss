@@ -1,0 +1,29 @@
+/********************************************************************
+                           BUSCADOR
+*********************************************************************/
+.formulario__Padre{
+    margin-top: 20px;
+    & input{
+        overflow: hidden;
+        animation: animate 10s linear infinite;
+    } 
+}
+    
+.btn__buscar{   
+    width: 30%;  
+    height: 45px;
+    right: 5px;
+    font-size: 30px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    background-color: $ColorRojoMain;
+    border-radius: 0px 50px 50px 0px;
+    top: 3px;
+    padding-right: 20px;
+}
+    
+.btn__buscar:hover, .boton:hover{
+    box-shadow: 0 5px 50px 0 #ff5650 inset,0 5px 50px 0 #ff5d57;       
+}
+    
