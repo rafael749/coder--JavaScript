@@ -1,5 +1,5 @@
 //MUESTRO LOS PRODUCTOS QUE TIENE EL CLIENTE AÑADIDOS AL CARRITO CUANDO ESTOS PASAN AL LOCALSTORAGE
-if(localStorage.listaProductosCarrito != null){
+if(localStorage.listaProductosCarrito != null ){
 
     //MUESTRO LOS PRODUCTOS QUE TIENE EL CLIENTE CARGADOS EN EL LOCALSTORAGE
     document.getElementById('idCarrito').innerText = JSON.parse(localStorage.listaProductosCarrito).length;
@@ -17,6 +17,7 @@ if(localStorage.listaProductosCarrito != null){
         console.log(productoEnCanasto)
         let mostrarProductoEnEsteDiv = document.getElementsByClassName('listaDeProductoPasarelaDePago');    
         let divParaMostrastrProducto = document.createElement('div');
+        divParaMostrastrProducto.id  = productoEnCanasto.idProducto;
         divParaMostrastrProducto.className = "card mb-3";
         divParaMostrastrProducto.innerHTML =`<div  class="card-body">
                                                 <div class="d-flex justify-content-between">
@@ -55,8 +56,30 @@ if(localStorage.listaProductosCarrito != null){
 
     const quitarProdDelCarrito = (idQuitarDelCarrito) =>{
         const item = listaCarrito.find((prod) => prod.idProducto === parseInt(idQuitarDelCarrito));
-        console.log(item);
-        debugger;
+        const element = document.getElementById(item.idProducto);
+        element.remove();
+        let indeiceDelItem = JSON.parse(localStorage.listaProductosCarrito).findIndex(element => element.idProducto===parseInt(idQuitarDelCarrito))
+        listaCarrito.splice(indeiceDelItem,1)
+        
+        localStorage.setItem("listaProductosCarrito",JSON.stringify(listaCarrito));
+    
+        document.getElementById('idCarrito').innerText = JSON.parse(localStorage.listaProductosCarrito).length;
+        document.getElementById('cantProdSeleccionados').innerText = JSON.parse(localStorage.listaProductosCarrito).length+' Productos Seleccionados';
+
+        if(listaCarrito.length === 0){
+            swal({
+                title: "",
+                text: "¡Tu carrito se quedó vacío!",
+                type: "warning",
+                confirmButtonColor: "#D10024",
+                closeOnConfirm: false
+              },
+              function(isConfirm){
+                  if (isConfirm) {
+                      window.location.href = '../index.html';
+                    } 
+          });
+        }
     }
 
 
@@ -70,7 +93,7 @@ if(localStorage.listaProductosCarrito != null){
 	  },
 	  function(isConfirm){
 		  if (isConfirm) {
-			  window.location.href = '/index.html';
+			  window.location.href = '../index.html';
 		 	} 
   });
 }

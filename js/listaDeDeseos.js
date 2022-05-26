@@ -48,7 +48,7 @@ if(localStorage.listaProductosDeseos != null){
 	  },
 	  function(isConfirm){
 		  if (isConfirm) {
-			  window.location.href = '/index.html';
+			  window.location.href = '../index.html';
 		 	} 
   });
 }
