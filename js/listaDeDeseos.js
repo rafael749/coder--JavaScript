@@ -5,7 +5,7 @@ if(localStorage.listaProductosDeseos != null){
     document.getElementById('idCarrito').innerText = JSON.parse(localStorage.listaProductosCarrito).length;
     document.getElementById('idDeseos').innerText = JSON.parse(localStorage.listaProductosDeseos).length;
     
-    let listaDeseos = JSON.parse(localStorage.getItem("listaProductosDeseos"))
+    let listaDeseos = JSON.parse(localStorage.getItem("listaProductosDeseos")) || null;
 
     let contadorProd= 0;
     for(let el of listaDeseos){    
@@ -47,8 +47,6 @@ if(localStorage.listaProductosDeseos != null){
 		closeOnConfirm: false
 	  },
 	  function(isConfirm){
-		  if (isConfirm) {
-			  window.location.href = '../index.html';
-		 	} 
+		  (isConfirm) ? window.location.href = '../index.html' : false;
   });
 }

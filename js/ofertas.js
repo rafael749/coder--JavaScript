@@ -6,7 +6,7 @@ if(localStorage.listaProductosDeseos != null){
     document.getElementById('idDeseos').innerText = JSON.parse(localStorage.listaProductosDeseos).length;
 }
 
-let listaProductosAccesorios = JSON.parse(localStorage.getItem("productos"));
+let listaProductosAccesorios = JSON.parse(localStorage.getItem("productos")) || null;
 
     let contadorProd=0;
     for (const itemAccesorio of listaProductosAccesorios){

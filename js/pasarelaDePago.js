@@ -5,12 +5,9 @@ if(localStorage.listaProductosCarrito != null ){
     document.getElementById('idCarrito').innerText = JSON.parse(localStorage.listaProductosCarrito).length;
     document.getElementById('cantProdSeleccionados').innerText = JSON.parse(localStorage.listaProductosCarrito).length+' Productos Seleccionados';
 
-    if(localStorage.listaProductosDeseos != null){
-    document.getElementById('idDeseos').innerText = JSON.parse(localStorage.listaProductosDeseos).length;
-    }else{
-    document.getElementById('idDeseos').innerText = 0;
-}
-    let listaCarrito = JSON.parse(localStorage.getItem("listaProductosCarrito"))
+    (localStorage.listaProductosDeseos != null) ? document.getElementById('idDeseos').innerText = JSON.parse(localStorage.listaProductosDeseos).length : document.getElementById('idDeseos').innerText = 0;
+
+    let listaCarrito = JSON.parse(localStorage.getItem("listaProductosCarrito")) || null;
     let total = 0;
     for(let productoEnCanasto of listaCarrito){
         
@@ -42,7 +39,7 @@ if(localStorage.listaProductosCarrito != null ){
                                             </div>`
         mostrarProductoEnEsteDiv[0].appendChild(divParaMostrastrProducto);
 
-        let btnEliminarProd = document.getElementById(`${productoEnCanasto.idProducto}`);
+        let btnEliminarProd = document.getElementById(`${productoEnCanasto.idProducto}`)|| null;
         btnEliminarProd.addEventListener('click',() => {quitarProdDelCarrito(`${productoEnCanasto.idProducto}`)
         });
 
@@ -75,9 +72,7 @@ if(localStorage.listaProductosCarrito != null ){
                 closeOnConfirm: false
               },
               function(isConfirm){
-                  if (isConfirm) {
-                      window.location.href = '../index.html';
-                    } 
+                  (isConfirm) ? window.location.href = '../index.html' : false;
           });
         }
     }
@@ -92,8 +87,6 @@ if(localStorage.listaProductosCarrito != null ){
 		closeOnConfirm: false
 	  },
 	  function(isConfirm){
-		  if (isConfirm) {
-			  window.location.href = '../index.html';
-		 	} 
+		  (isConfirm) ? window.location.href = '../index.html' : false;
   });
 }
