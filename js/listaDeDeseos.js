@@ -25,18 +25,64 @@ if(localStorage.listaProductosDeseos != null){
                                                 <i class="fas fa-eye eye data-bs-toggle="tooltip" data-bs-placement="top" title="Ver Producto"></i>                                          
                                                 <i id="producto${el.idProducto}" class="fas fa-shopping-cart shopping-car agregarCarrito" data-bs-toggle="tooltip" data-bs-placement="top" title="Agregar al Carrito"></i>
                                             </div>`
-            contadorProd++;
-            grillaPadre[0].appendChild(producto);
+        contadorProd++;
+        grillaPadre[0].appendChild(producto);
 
 
-			let btnListaDeseos = document.getElementById(`${el.idProducto}`);
-			btnListaDeseos.addEventListener("click",() => {agregarListaDeseos(el.idProducto)
-			});
+		let btnListaDeseos = document.getElementById(`${el.idProducto}`);
+		btnListaDeseos.addEventListener("click",() => {agregarListaDeseos(el.idProducto)
+        });
 
-			let btnListaCarrito = document.getElementById(`producto${el.idProducto}`);
-			btnListaCarrito.addEventListener('click',() => {agregarAlCarrito(el.idProducto)
-			});		                                        
+		let btnListaCarrito = document.getElementById(`producto${el.idProducto}`);
+		btnListaCarrito.addEventListener('click',() => {agregarDeseoAlCarrito(el.idProducto)
+		});		                                        
     }
+
+   /* const agregarDeseoAlCarrito = (idProd) => {
+
+        //Si el cliente ya tiene compras en el carrito almacenado en el localStorage, se añaden el mismo. SINO en el array carrito[] vacío.
+        let carrito= [];
+    
+        localStorage.listaProductosCarrito != null ? carrito = JSON.parse(localStorage.listaProductosCarrito) : false;
+    
+        //AÑADIMOS EL PRODUCTO SELECCIONADO A CARRITO[]
+        const item = listaDeseos.find((prod) => prod.idProducto === idProd);
+    
+        carrito.push({
+            "categoriaProducto": item.categoriaProducto,
+            "nombreProducto":item.nombreProducto,
+            "marcaProducto":item.marcaProducto,
+            "precioProducto":item.precioProducto,
+            "modeloProducto":item.modeloProducto,
+            "envioProducto":item.envioProducto,
+            "estadoProducto":item.estadoProducto,
+            "imagen":item.imagen,
+            "idProducto":item.idProducto
+        });
+        
+        console.log("carrito",carrito)
+    
+        //PASAMOS CARRITO AL LOCAL STORAGE
+    
+        localStorage.setItem("listaProductosCarrito",JSON.stringify(carrito)); 	
+        document.getElementById('idCarrito').innerText = carrito.length
+        
+        //Mostrar alerta del producto Agregado
+        swal({
+            title: "",
+            text: "¡Se ha agregado un nuevo producto al carrito de compras!",
+            type: "success",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            cancelButtonText: "¡Continuar comprando!",
+            confirmButtonText: "¡Ir a mi carrito de compras!",
+            closeOnConfirm: false
+          },
+          function(isConfirm){
+              (isConfirm) ? window.location.href = "../html/pasarelaDePago.html" : false;
+                  
+      });
+    }*/
     
 }else{ //Si el cliente aún no tiene compras, se lo dirige al inicio.
     swal({

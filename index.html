@@ -86,10 +86,33 @@
                 <ul
                     class=" sidebar-social-casero form__login justify-content-around justify-content-sm-around justify-content-lg-evenly justify-content-md-around  container col-12 col-lg-3">
                     <li>
-                        <a href="html/perfilUsuario.html">
-                            <i class="fa fa-user"></i><span class="usuario"> Usuario</span></a>
-                    </li>
-                    
+                       <!-- <a href="html/perfilUsuario.html"> -->
+                        
+                            <i class="fa fa-user"></i><span onclick="document.getElementById('id01').style.display='block'" style="width:auto;" class="usuario"> Usuario</span>
+                            <div id="id01" class="modal1">
+  
+                                <form class="modal-content animate" style="background-color:#b1b1b1b1" action="" method="">
+                                  <div class="imgcontainer">
+                                    <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                                    <img src="img/imgPerfil.jpg" alt="Avatar" class="avatar">
+                                  </div>                              
+                                  <div class="container1">
+                                    <label for="uname"><b>Username</b></label>
+                                    <input type="text" placeholder="Enter Username" name="uname" required>
+                                    <label for="psw"><b>Password</b></label>
+                                    <input type="password" placeholder="Enter Password" name="psw" required>
+                                    <button class="button" type="submit">Login</button>
+                                    <label>
+                                      <input type="checkbox" checked="checked" name="remember"> Remember me
+                                    </label>
+                                  </div>
+                                  <div class="container1" style="background-color:#858383">
+                                    <button type="button" onclick="document.getElementById('id01').style.display='none'" class="button cancelbtn">Cancel</button>
+                                    <span class="psw">Forgot <a href="#">password?</a></span>
+                                  </div>
+                                </form>
+                              </div>
+                        </li>                    
                     <li class="cart"><a href="html/listaDeseos.html">
                             <i class="fas fa-heart"></i><span class=""> Deseos</span></a>
                         <span id="idDeseos" data-action="cart-can" class="cart_menu_num badge rounded-circle">0</span>
@@ -312,11 +335,12 @@
                 </div>
     </footer>
 
+
+
     <!--------------------------------------------------------- BOTON SUBIR------------------------------------------------------------------------------->
     <script src="productosCargadosAlSistema.js" type="text/javascript"></script>
     <script src="js/index.js" type="text/javascript"></script>
     <script src="clasesObjetos.js" type="text/javascript"></script>
-    <script src="indexIncorporacionEventos.js" type="text/javascript"></script>
 </body>
 
 </html>
