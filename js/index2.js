@@ -15,11 +15,12 @@ localStorage.listaProductosCarrito != null ? document.getElementById('idCarrito'
 //MUESTRO LOS PRODUCTOS QUE TIENE EL CLIENTE AÑADIDOS A LA LISTA DE DESEOS CARGADOS EN EL LOCALSTORAGE
 localStorage.listaProductosDeseos != null ? document.getElementById('idDeseos').innerText = JSON.parse(localStorage.listaProductosDeseos).length : false;
 
-let mostrarProductoCargadosEnSistema = (arr) => {
 
+fetch('productosCargadosAlSistema.json')
+.then(response => response.json())
+.then(dataProductos => {
+   dataProductos.forEach((el, indice)=> {
     let contadorProd=0;
-
-    for (const el of arr){
         if(el.categoriaProducto==="tecnologias" || el.categoriaProducto==="accesorios"){
             let grillaPadre = document.getElementsByClassName('grillaPadre')
             let producto = document.createElement("div");
@@ -48,14 +49,11 @@ let mostrarProductoCargadosEnSistema = (arr) => {
 			let btnListaCarrito = document.getElementById(`producto${el.idProducto}`);
 			btnListaCarrito.addEventListener('click',() => {agregarAlCarrito(el.idProducto)
 			});
+        }		
+        })
+    })
 
-			//Solo mostraré 10 prod en el index.
-			if(contadorProd===10){break;}
-        } 	
-    }					
-}    
-
-mostrarProductoCargadosEnSistema(productos);
+//mostrarProductoCargadosEnSistema(productos);
 
 const agregarListaDeseos = (idDeseo) => {
 //	console.log(`Producto sumado a la lista de Deseos ${id.target.id}`)
@@ -103,8 +101,8 @@ const agregarAlCarrito = (idProd) => {
 	localStorage.listaProductosCarrito != null ? carrito = JSON.parse(localStorage.listaProductosCarrito) : false;
 
 	//AÑADIMOS EL PRODUCTO SELECCIONADO A CARRITO[]
+    debugger;
 	const item = productos.find((prod) => prod.idProducto === idProd);
-
 	carrito.push({
 		"categoriaProducto": item.categoriaProducto,
 		"nombreProducto":item.nombreProducto,
